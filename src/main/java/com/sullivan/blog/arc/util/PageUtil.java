@@ -1,6 +1,7 @@
 package com.sullivan.blog.arc.util;
 
-import ssm.blog.entity.Blog;
+
+import com.sullivan.blog.function.stage.blog.Blog;
 
 /**
  * 分页工具类
