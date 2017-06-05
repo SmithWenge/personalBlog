@@ -21,11 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getBlogData" resultMap="BlogResult">
 		  SELECT 
-		    DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr,
+		    DATE_FORMAT(releaseDate,'%Y%m') AS releaseDateStr,
 		    COUNT(*) AS blogCount
 		  FROM
 		    t_blog 
-		  GROUP BY DATE_FORMAT(releaseDate,'%Y年%m月')
+		  GROUP BY DATE_FORMAT(releaseDate,'%Y%m')
 		  ORDER BY releaseDate DESC
 	</select>
 	
@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 		and type_id=#{typeId}
 		 	</if>
 		 	<if test="releaseDateStr!=null and releaseDateStr!=''">
-		 		and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+		 		and DATE_FORMAT(releaseDate,'%Y%m')=#{releaseDateStr}
 		 	</if>
 		 </where>
 		 ORDER BY releaseDate DESC
@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 		and type_id=#{typeId}
 		 	</if>
 		 	<if test="releaseDateStr!=null and releaseDateStr!=''">
-		 		and DATE_FORMAT(releaseDate,'%Y年%m月')=#{releaseDateStr}
+		 		and DATE_FORMAT(releaseDate,'%Y%m')=#{releaseDateStr}
 		 	</if>
 		 </where>
 	</select>

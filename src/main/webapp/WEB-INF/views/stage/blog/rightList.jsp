@@ -20,16 +20,14 @@
 		<img style="width: 17px; height: 17px" src="${pageContext.request.contextPath}/static/images/map.png" />
 		${blogger.address}
 	</div>
-	<div style="margin: 7px 0px 0px 46px">
+	<div style="margin: 11px 0px 0px 46px">
 		<img style="width: 20px; height: 20px" src="${pageContext.request.contextPath}/static/images/email.png" />
 		${blogger.email}
 	</div>
-	<div style="margin: 7px 0px 0px 46px">
+	<div style="margin: 6px 0px 0px 46px">
 		<img src="${pageContext.request.contextPath}/static/images/link_icon.png" />
 		<a href="http://www.cnblogs.com/Vdiao/">${blogger.linkBlog}</a>
 	</div>
-	<%--<div class="nickName"><strong><font style="color: #EE6A50">昵称：${blogger.nickname }</font></strong></div>--%>
-	<%--<div class="userSign">『<strong><font style="color: #EE6A50">${blogger.sign }</font></strong>』</div>--%>
 </div>
 
 <div class="data_list">

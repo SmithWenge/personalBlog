@@ -153,5 +153,7 @@
 		</div>
 		</form>
 	</div>
-
 </div>
+<script type="text/javascript">
+		document.getElementById("randImage").src="${pageContext.request.contextPath}/image.jsp?"+Math.random();
+	</script>
