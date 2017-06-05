@@ -86,19 +86,16 @@
 			src="${pageContext.request.contextPath}/static/images/comment_icon.png" />
 		分享到
 	</div>
-	<div class="datas">
+	<div class="datas" style="margin-top: 15px">
 		<ul>
-			<div style="text-align:left;padding-top:20px;">
-				<div class="bdsharebuttonbox">
-					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-					<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-					<a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
-					<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-					<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-					<a href="#" class="bds_more" data-cmd="more"></a>
-				</div>
+			<div class="bshare-custom">
+				<a title="分享到微信" class="bshare-weixin"></a>
+				<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+				<a title="分享到QQ好友" class="bshare-qqim"></a><a title="分享到QQ空间" class="bshare-qzone"></a>
+				<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+				<span class="BSHARE_COUNT bshare-share-count">0</span>
 			</div>
+			<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 		</ul>
 	</div>
 </div>
