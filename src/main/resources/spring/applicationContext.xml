@@ -16,41 +16,46 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<!-- 自动扫描包中的bean -->
-	<context:component-scan base-package="com.sullivan.blog.*" />
+	<context:component-scan base-package="com.sullivan.blog.*"/>
 
 	<!-- 配置数据源，使用阿里巴巴连接池Druid -->
-	<context:property-placeholder ignore-unresolvable="true" location="classpath:db/db.properties"/>
+	<!--<context:property-placeholder ignore-unresolvable="true" location="classpath:db/db.properties"/>-->
+	<!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+		<!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+		<!--<property name="url" value="${jdbc.url}"/>-->
+		<!--<property name="username" value="${jdbc.username}"/>-->
+		<!--<property name="password" value="${jdbc.password}"/>-->
+		<!--<property name="filters" value="${jdbc.filters}"/>-->
+		<!--<property name="initialSize" value="${jdbc.initialSize}"/>-->
+		<!--<property name="maxActive" value="${jdbc.maxActive}"/>-->
+		<!--<property name="maxWait" value="${jdbc.maxWait}"/>-->
+		<!--<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>-->
+		<!--<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>-->
+		<!--<property name="validationQuery" value="${jdbc.validationQuery}"/>-->
+		<!--<property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>-->
+		<!--<property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>-->
+		<!--<property name="testOnReturn" value="${jdbc.testOnReturn}"/>-->
+		<!--<property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>-->
+		<!--<property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>-->
+	<!--</bean>-->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-		<property name="driverClassName" value="${jdbc.driverClassName}"/>
-		<property name="url" value="${jdbc.url}"/>
-		<property name="username" value="${jdbc.username}"/>
-		<property name="password" value="${jdbc.password}"/>
-		<property name="filters" value="${jdbc.filters}"/>
-		<property name="initialSize" value="${jdbc.initialSize}"/>
-		<property name="maxActive" value="${jdbc.maxActive}"/>
-		<property name="maxWait" value="${jdbc.maxWait}"/>
-		<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
-		<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
-		<property name="validationQuery" value="${jdbc.validationQuery}"/>
-		<property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>
-		<property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>
-		<property name="testOnReturn" value="${jdbc.testOnReturn}"/>
-		<property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>
-		<property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/db_blog"/>
+		<property name="username" value="root"/>
+		<property name="password" value="sorry"/>
 	</bean>
 
 	<!-- 配置mybatis的sqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mappers.xml文件 -->
-		<property name="mapperLocations" value="classpath:mappers/*.xml"></property>
+		<property name="mapperLocations" value="classpath:com/sullivan/blog/mappers/*Mapper.xml"></property>
 		<!-- 加载mybatis全局配置文件 -->
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
 	</bean>
 
 	<!-- 扫描mapper接口（即dao），Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="ssm.blog.dao" />
+		<property name="basePackage" value="com.sullivan.blog.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
@@ -61,7 +66,7 @@
 	</bean>
 
 	<!-- 自定义Realm -->
-	<bean id="myRealm" class="com.sullivan.blog.function.realm.MyRealm" />
+	<bean id="myRealm" class="com.sullivan.blog.realm.MyRealm" />
 
 	<!-- 安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -73,7 +78,7 @@
 		<!-- Shiro的核心安全接口,这个属性是必须的 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 身份认证失败，则跳转到登录页面的配置 -->
-		<property name="loginUrl" value="/login.jsp" />
+		<property name="loginUrl" value="/WEB-INF/views/admin/login.jsp" />
 		<!-- 权限认证失败，则跳转到指定页面，因为个人博客就一个人登陆，就不需要权限了 -->
 		<!-- <property name="unauthorizedUrl" value="/unauthorized.jsp" />  -->
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
@@ -121,7 +126,7 @@
 
 	<!-- 配置事务切面 -->
 	<aop:config>
-		<aop:pointcut id="pointCut" expression="execution(* ssm.blog.service.*.*(..))" />
+		<aop:pointcut id="pointCut" expression="execution(* com.sullivan.blog.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut" />
 	</aop:config>
 

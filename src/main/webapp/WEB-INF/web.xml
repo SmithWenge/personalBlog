@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
     <display-name>blog</display-name>
+    <welcome-file-list>
+        <welcome-file>a.jsp</welcome-file>
+    </welcome-file-list>
 
     <!-- spring监听器 -->
     <listener>
@@ -14,7 +17,7 @@
 
     <!-- 添加获取博主信息的监听器 -->
     <listener>
-        <listener-class>com.sullivan.blog.function.support.listener.InitBloggerData</listener-class>
+        <listener-class>com.sullivan.blog.listener.InitBloggerData</listener-class>
     </listener>
 
     <!-- 添加springmvc支持 -->
@@ -59,7 +62,7 @@
         <async-supported>true</async-supported>
         <init-param>
             <param-name>encoding</param-name>
-            <param-value>GBK</param-value>
+            <param-value>UTF-8</param-value>
         </init-param>
     </filter>
     <filter-mapping>

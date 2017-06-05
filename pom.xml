@@ -9,8 +9,10 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <project.reporting.outputEncoding>GBK</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 编译时的编码 -->
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <jdk.version>1.7</jdk.version>
     <spring.mvc.version>4.1.6.RELEASE</spring.mvc.version>
     <shiro.version>1.3.2</shiro.version>
@@ -24,6 +26,17 @@
       <artifactId>json-lib</artifactId>
       <version>2.4</version>
       <classifier>jdk15</classifier>
+    </dependency>
+    <!-- Json -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.1.0</version>
     </dependency>
 
     <!-- JSP Servlet JSTL-->
