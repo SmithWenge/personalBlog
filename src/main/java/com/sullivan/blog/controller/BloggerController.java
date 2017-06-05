@@ -36,7 +36,7 @@ public class BloggerController {
 		UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUsername(), newPassword);
 		try {
 			subject.login(token); //会调用MyRealm中的doGetAuthenticationInfo方法进行身份认证
-			return "redirect:/admin/main.jsp";
+			return "redirect:/admin/routeMain.html";
 		} catch (AuthenticationException e) {
 			e.printStackTrace();
 			request.setAttribute("bloger", blogger);
