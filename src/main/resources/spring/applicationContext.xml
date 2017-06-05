@@ -18,30 +18,25 @@
 	<!-- 自动扫描包中的bean -->
 	<context:component-scan base-package="com.sullivan.blog.*"/>
 
-	<!-- 配置数据源，使用阿里巴巴连接池Druid -->
-	<!--<context:property-placeholder ignore-unresolvable="true" location="classpath:db/db.properties"/>-->
-	<!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
-		<!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
-		<!--<property name="url" value="${jdbc.url}"/>-->
-		<!--<property name="username" value="${jdbc.username}"/>-->
-		<!--<property name="password" value="${jdbc.password}"/>-->
-		<!--<property name="filters" value="${jdbc.filters}"/>-->
-		<!--<property name="initialSize" value="${jdbc.initialSize}"/>-->
-		<!--<property name="maxActive" value="${jdbc.maxActive}"/>-->
-		<!--<property name="maxWait" value="${jdbc.maxWait}"/>-->
-		<!--<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>-->
-		<!--<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>-->
-		<!--<property name="validationQuery" value="${jdbc.validationQuery}"/>-->
-		<!--<property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>-->
-		<!--<property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>-->
-		<!--<property name="testOnReturn" value="${jdbc.testOnReturn}"/>-->
-		<!--<property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>-->
-		<!--<property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>-->
-	<!--</bean>-->
+	 <!--配置数据源，使用阿里巴巴连接池Druid-->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:db/db.properties"/>
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-		<property name="url" value="jdbc:mysql://localhost:3306/db_blog"/>
-		<property name="username" value="root"/>
-		<property name="password" value="sorry"/>
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="filters" value="${jdbc.filters}"/>
+		<property name="initialSize" value="${jdbc.initialSize}"/>
+		<property name="maxActive" value="${jdbc.maxActive}"/>
+		<property name="maxWait" value="${jdbc.maxWait}"/>
+		<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
+		<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+		<property name="validationQuery" value="${jdbc.validationQuery}"/>
+		<property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>
+		<property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>
+		<property name="testOnReturn" value="${jdbc.testOnReturn}"/>
+		<property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>
 	</bean>
 
 	<!-- 配置mybatis的sqlSessionFactory -->
