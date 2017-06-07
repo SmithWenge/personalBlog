@@ -55,7 +55,7 @@
 			<tr>
 				<td valign="top">博客内容：</td>
 				<td><script id="editor" name="content" type="text/plain"
-						style="width:80%; height:500px;"></script></td>
+						style="width:100%; height:200px;"></script></td>
 			</tr>
 			<tr>
 				<td>关键字：</td>
@@ -69,9 +69,6 @@
 			</tr>
 		</table>
 	</div>
-
-
-
 
 	<!-- 实例化编辑器 -->
 	<script type="text/javascript">
