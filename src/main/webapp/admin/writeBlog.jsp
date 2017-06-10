@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/demo.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/demo/demo.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
 <script type="text/javascript"
@@ -55,7 +55,7 @@
 			<tr>
 				<td valign="top">博客内容：</td>
 				<td><script id="editor" name="content" type="text/plain"
-						style="width:100%; height:200px;"></script></td>
+						style="width:100%; height:500px;"></script></td>
 			</tr>
 			<tr>
 				<td>关键字：</td>

@@ -13,11 +13,6 @@
     <script src="${contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
 </head>
 <body style="padding:30px;background:#e6e6e6;">
-<div style="width:100%;padding:7px;">
-    <button type="button" align="center" class="btn btn-primary btn-lg" style="font-size:30px;">
-        <span class="glyphicon glyphicon-user"></span>左边输入markdown语句，右边实时预览
-    </button>
-</div>
 <textarea id="text-input" oninput="this.editer.update()" style="width:50%;height:768px; background:#CBEFD9;font-size:22px;">
 </textarea>
 <div id="preview" style="float:right;width:50%;height:100%; border:0.5px solid #315;background:#e6e6e6;"></div>

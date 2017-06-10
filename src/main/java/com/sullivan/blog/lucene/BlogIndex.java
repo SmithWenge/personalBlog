@@ -78,7 +78,9 @@ public class BlogIndex {
 		dir = FSDirectory.open(Paths.get("D:\\blog_index"));
 		IndexReader reader = DirectoryReader.open(dir);
 		IndexSearcher search = new IndexSearcher(reader);
+		//多条件查询
 		BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
+		//中文分词
 		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
 
 		QueryParser parser1 = new QueryParser("title", analyzer); //查询标题
@@ -87,6 +89,7 @@ public class BlogIndex {
 		QueryParser parser2 = new QueryParser("content", analyzer); //查询内容
 		Query query2 = parser2.parse(q);
 
+		//组合条件进行查询
 		booleanQuery.add(query1, BooleanClause.Occur.SHOULD);
 		booleanQuery.add(query2, BooleanClause.Occur.SHOULD);
 
