@@ -8,58 +8,52 @@
     <meta charset="utf-8">
     <title>Markdown写博客页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/demo/demo.css">
-    <link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body style="margin: 10px; font-family: microsoft yahei">
 
-<div id="p" class="easyui-panel" title="编写博客" style="padding: 10px;">
+<style>
+    td{
+        word-break:keep-all;
+    }
+</style>
 
-    <table cellspacing="20px">
-        <tr>
-            <td width="80px" style="margin: 40px">博客标题：</td>
-            <td><input type="text" id="title" name="title" style="width:400px" /></td>
-        </tr>
-        <tr style="margin: 40px">
-            <td>所属类别：</td>
-            <td><select id="blogTypeId" class="easyui-combobox"
-                        name="blogType.id" style="width:154px" editable="false"
-                        panelHeight="auto">
-                <option value="">请选择博客类别...</option>
-                <c:forEach items="${blogTypeList }" var="blogType">
-                    <option value="${blogType.id }">${blogType.typeName }</option>
-                </c:forEach>
-            </select></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td valign="top">博客内容：</td>
-            <td>
-                <textarea id="text-input" oninput="this.editer.update()" style="width:50%;height:500px;float: left;background:#CBEFD9;font-size:22px;"></textarea>
-                <div id="preview" style="float:right;width:45%;height:200%; border:0.5px solid #315;background:#e6e6e6;"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>关键字：</td>
-            <td><input type="text" id="keyWord" name="keyWord"
-                       style="width:400px" />&nbsp;&nbsp;&nbsp;多个关键字的话请用空格隔开</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><a href="javascript:submitData()" class="easyui-linkbutton"
-                   data-options="iconCls:'icon-submit'">发布博客</a></td>
-        </tr>
-    </table>
-</div>
+<table cellspacing="10px">
+    <tr>
+        <td width="80px" style="margin: 40px">博客标题：</td>
+        <td><input type="text" id="title" name="title" style="width:400px" /></td>
+    </tr>
+    <tr style="margin: 40px">
+        <td>所属类别：</td>
+        <td><select id="blogTypeId" class="easyui-combobox"
+                    name="blogType.id" style="width:154px" editable="false"
+                    panelHeight="auto">
+            <option value="">请选择博客类别...</option>
+            <c:forEach items="${blogTypeList }" var="blogType">
+                <option value="${blogType.id }">${blogType.typeName }</option>
+            </c:forEach>
+        </select></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td valign="top">博客内容：</td>
+        <td width="600px">
+            <textarea id="text-input" oninput="this.editer.update()" style="width:550px;height:800px;float: left;background:#CBEFD9;font-size:22px;"></textarea>
+        </td>
+        <td width="100px" style="word-break: break-all">
+            <div id="preview" style="float:left;width:500px;height:800px;border:0.5px solid #315;background:#e6e6e6;"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>关键字：</td>
+        <td><input type="text" id="keyWord" name="keyWord"
+                   style="width:400px" />&nbsp;&nbsp;&nbsp;多个关键字的话请用空格隔开</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a href="javascript:submitData()" class="easyui-linkbutton"
+               data-options="iconCls:'icon-submit'">发布博客</a></td>
+    </tr>
+</table>
 <!-- markdown编辑器 -->
 <script src='${contextPath}/static/markdown-browser-0.6.0-beta1/markdown.js'></script>
 <script type="text/javascript">
