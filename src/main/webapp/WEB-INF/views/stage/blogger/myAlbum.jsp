@@ -5,7 +5,7 @@
 
 <div class="data_list">
 	<div class="data_list_title">
-		<img src="${pageContext.request.contextPath}/static/images/about_icon.png"/>&nbsp;我的相册
+		<img src="${contextPath}/static/images/about_icon.png"/>&nbsp;我的相册
 	</div>	
 	<div class="datas">
 			<ul>	

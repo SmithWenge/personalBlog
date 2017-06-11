@@ -7,15 +7,15 @@
 <head>
 <title>博客管理页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript">
 	function formatTitle(val, row) {
-		return "<a target='_blank' href='${pageContext.request.contextPath}/blog/articles/"+row.id+".html'>"+val+"</a>";
+		return "<a target='_blank' href='${contextPath}/blog/articles/"+row.id+".html'>"+val+"</a>";
 	}
 	
 	function formatBlogType(val, row) {
@@ -41,7 +41,7 @@
 		var ids = idsStr.join(","); //1,2,3,4
 		$.messager.confirm("系统提示", "<font color=red>您确定要删除选中的"+selectedRows.length+"条数据么？</font>", function(r) {
 			if(r) {
-				$.post("${pageContext.request.contextPath}/admin/blog/delete.do",
+				$.post("${contextPath}/admin/blog/delete.do",
 						{ids: ids}, function(result){
 							if(result.success) {
 								$.messager.alert("系统提示", "数据删除成功！");
@@ -73,7 +73,7 @@
 
 <body style="margin: 1px; font-family: microsoft yahei">
 <table id="dg" title="博客管理" class="easyui-datagrid" fitColumns="true" pagination="true"
-	url="${pageContext.request.contextPath}/admin/blog/listBlog.do" toolbar="#tb">
+	url="${contextPath}/admin/blog/listBlog.do" toolbar="#tb">
 	<thead>
 		<tr>
 			<th field="cb" checkbox="true" align="center"></th>

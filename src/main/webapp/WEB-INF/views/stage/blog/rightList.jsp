@@ -4,11 +4,11 @@
 
 <div class="data_list">
 	<div class="data_list_title">
-		<img src="${pageContext.request.contextPath}/static/images/user_icon.png" />
+		<img src="${contextPath}/static/images/user_icon.png" />
 		博主信息
 	</div>
 	<div style="margin: 15px 0px 0px 46px">
-		<img class="img-rounded" style="width: 200px; height: 270px" src="${pageContext.request.contextPath}/static/userImages/${blogger.imagename}" />
+		<img class="img-rounded" style="width: 200px; height: 270px" src="${contextPath}/static/userImages/${blogger.imagename}" />
 	</div>
 	<div style="margin: 20px 0px 0px 46px">
 		<h2><b>${blogger.name}</b></h2>
@@ -18,15 +18,15 @@
 		<h5>${blogger.sign}</h5>
 	</div>
 	<div style="margin: 20px 0px 0px 46px">
-		<img style="width: 17px; height: 17px" src="${pageContext.request.contextPath}/static/images/map.png" />
+		<img style="width: 17px; height: 17px" src="${contextPath}/static/images/map.png" />
 		${blogger.address}
 	</div>
 	<div style="margin: 11px 0px 0px 46px">
-		<img style="width: 20px; height: 20px" src="${pageContext.request.contextPath}/static/images/email.png" />
+		<img style="width: 20px; height: 20px" src="${contextPath}/static/images/email.png" />
 		${blogger.email}
 	</div>
 	<div style="margin: 6px 0px 0px 46px">
-		<img src="${pageContext.request.contextPath}/static/images/link_icon.png" />
+		<img src="${contextPath}/static/images/link_icon.png" />
 		<a href="http://www.cnblogs.com/Vdiao/">${blogger.linkBlog}</a>
 	</div>
 </div>
@@ -34,14 +34,14 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img
-			src="${pageContext.request.contextPath}/static/images/byType_icon.png" />
+			src="${contextPath}/static/images/byType_icon.png" />
 		文章分类
 	</div>
 	<div class="datas">
 		<ul>
 			<c:forEach items="${blogTypeList }" var="blogType">
 				<li><span> <a
-						href="${pageContext.request.contextPath}/index.html?typeId=${blogType.id }">${blogType.typeName }（${blogType.blogCount }）
+						href="${contextPath}/index.html?typeId=${blogType.id }">${blogType.typeName }（${blogType.blogCount }）
 					</a></span></li>
 			</c:forEach>
 		</ul>
@@ -51,14 +51,14 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img
-			src="${pageContext.request.contextPath}/static/images/byDate_icon.png" />
+			src="${contextPath}/static/images/byDate_icon.png" />
 		文章存档
 	</div>
 	<div class="datas">
 		<ul>
 			<c:forEach items="${blogTimeList }" var="blog">
 				<li><span> <a
-						href="${pageContext.request.contextPath}/index.html?releaseDateStr=${blog.releaseDateStr }">${blog.releaseDateStr }（${blog.blogCount }）
+						href="${contextPath}/index.html?releaseDateStr=${blog.releaseDateStr }">${blog.releaseDateStr }（${blog.blogCount }）
 					</a></span></li>
 			</c:forEach>
 		</ul>
@@ -67,7 +67,7 @@
 
 <div class="data_list">
 	<div class="data_list_title">
-		<img src="${pageContext.request.contextPath}/static/images/link_icon.png" />
+		<img src="${contextPath}/static/images/link_icon.png" />
 		友情链接
 	</div>
 	<div class="datas">
@@ -82,7 +82,7 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img
-			src="${pageContext.request.contextPath}/static/images/comment_icon.png" />
+			src="${contextPath}/static/images/comment_icon.png" />
 		分享到
 	</div>
 	<div class="datas" style="margin-top: 15px">

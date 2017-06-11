@@ -5,7 +5,7 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img
-			src="${pageContext.request.contextPath}/static/images/search_icon.png" />&nbsp;
+			src="${contextPath}/static/images/search_icon.png" />&nbsp;
 			搜索&nbsp;<font color="red">${q }</font>&nbsp;的结果&nbsp;(共搜索到&nbsp;${resultTotal }&nbsp;条记录)
 	</div>
 	<div class="datas search">
@@ -18,10 +18,10 @@
 					<c:forEach items="${blogIndexList }" var="blog">
 						 <li style="margin-bottom: 20px">
 						  	<span class="title">
-						  		<img alt="文章类型" src="${pageContext.request.contextPath}/static/images/yuan.jpg">
-						  		<a href="${pageContext.request.contextPath}/blog/articles/${blog.id }.html" target="_blank">${blog.title }</a></span>
+						  		<img alt="文章类型" src="${contextPath}/static/images/yuan.jpg">
+						  		<a href="${contextPath}/blog/articles/${blog.id }.html" target="_blank">${blog.title }</a></span>
 						  	<span class="summary">摘要: ${blog.content }...</span>
-						  	<span class="link"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id }.html">${pageContext.request.contextPath}/blog/articles/${blog.id }.html</a>&nbsp;&nbsp;&nbsp;&nbsp;修改日期：${blog.releaseDateStr }</span>
+						  	<span class="link"><a href="${contextPath}/blog/articles/${blog.id }.html">${contextPath}/blog/articles/${blog.id }.html</a>&nbsp;&nbsp;&nbsp;&nbsp;修改日期：${blog.releaseDateStr }</span>
 						 </li>						
 					</c:forEach>
 				</c:otherwise>

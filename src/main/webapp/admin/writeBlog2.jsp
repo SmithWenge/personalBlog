@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <title>Markdown写博客页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js"></script>
 </head>
 <body style="margin: 10px; font-family: microsoft yahei">
 
@@ -97,7 +97,7 @@
         } else if (content == null || content == '') {
             $.messager.alert("系统提示", "请编辑博客内容！");
         } else {
-            $.post("${pageContext.request.contextPath}/admin/blog/save.do",
+            $.post("${contextPath}/admin/blog/save.do",
                     {
                         'title' : title,
                         'blogType.id' : blogTypeId,

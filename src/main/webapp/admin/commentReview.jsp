@@ -7,18 +7,18 @@
 <head>
 <title>评论审核页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript">
 	function formatBlogTitle(val,row) {
 		if(val == null) {
 			return "<font color=red>该博客已删除</font>";
 		} else {
-			return "<a href='${pageContext.request.contextPath}/blog/articles/"+val.id+".html' target='_blank'>"+val.title+"</a>";
+			return "<a href='${contextPath}/blog/articles/"+val.id+".html' target='_blank'>"+val.title+"</a>";
 		}
 	}
 	
@@ -35,7 +35,7 @@
 		var ids = idsStr.join(","); //1,2,3,4
 		$.messager.confirm("系统提示", "<font color=red>您确定如此审核选中的"+selectedRows.length+"条数据吗？</font>", function(r) {
 			if(r) {
-				$.post("${pageContext.request.contextPath}/admin/comment/review.do",
+				$.post("${contextPath}/admin/comment/review.do",
 						{ids: ids, state: state}, 
 						function(result){
 							if(result.success) {
@@ -58,7 +58,7 @@
 
 <body style="margin: 1px; font-family: microsoft yahei">
 <table id="dg" title="评论审核管理" class="easyui-datagrid" fitColumns="true" pagination="true"
-	url="${pageContext.request.contextPath}/admin/comment/listComment.do?state=0" toolbar="#tb">
+	url="${contextPath}/admin/comment/listComment.do?state=0" toolbar="#tb">
 	<thead>
 		<tr>
 			<th field="cb" checkbox="true" align="center"></th>

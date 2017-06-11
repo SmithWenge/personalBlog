@@ -8,27 +8,27 @@
 <title>写博客页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+	href="${contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/demo/demo.css">
+	href="${contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/demo/demo.css">
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+	src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+	src="${contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+	src="${contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript" charset="utf-8"
-	src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
+	src="${contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8"
-	src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js">
+	src="${contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js">
 	
 </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8"
-	src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/lang/zh-cn/zh-cn.js"></script>
+	src="${contextPath}/static/ueditor1_4_3_3/lang/zh-cn/zh-cn.js"></script>
 
 </head>
 
@@ -91,7 +91,7 @@
 			} else if (content == null || content == '') {
 				$.messager.alert("系统提示", "请编辑博客内容！");
 			} else {
-				$.post("${pageContext.request.contextPath}/admin/blog/save.do",
+				$.post("${contextPath}/admin/blog/save.do",
 						{
 							'title' : title,
 							'blogType.id' : blogTypeId,

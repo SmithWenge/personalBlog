@@ -1,27 +1,28 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>写博客页面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/demo.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/demo.css">
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="${contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${contextPath}/static/ueditor1_4_3_3/lang/zh-cn/zh-cn.js"></script>
 
 <script type="text/javascript">
 	function submitData() {
 		
 		$("#fm").form("submit",{
-			url: "${pageContext.request.contextPath}/admin/blogger/save.do",
+			url: "${contextPath}/admin/blogger/save.do",
 			onSubmit: function() {
 				var profile = UE.getEditor("profile").getContent();
 				$("#pf").val(profile); //将UEditor编辑器中的内容放到隐藏域中提交到后台
@@ -64,7 +65,7 @@
 					<td>个性签名：</td>
 					<td>
 						<input type="text" id="sign" name="sign" style="width:400px" 
-							class="easyui-validatebox" required="true""/>
+							class="easyui-validatebox" required="true"/>
 					</td>
 				</tr>
 				<tr>
@@ -94,7 +95,7 @@
 	var ue = UE.getEditor('profile');
 	ue.addListener("ready", function(){
 		//通过UE自己封装的ajax请求数据
-		UE.ajax.request("${pageContext.request.contextPath}/admin/blogger/findBlogger.do",
+		UE.ajax.request("${contextPath}/admin/blogger/findBlogger.do",
 				{
 					method: "post",
 					async: false,

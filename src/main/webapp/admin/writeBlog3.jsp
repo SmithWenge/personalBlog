@@ -94,7 +94,7 @@
         var keyWord = document.getElementById("keyWord").value;
         var contentNoTag =$(previewContent).text();
 
-        $.post("${pageContext.request.contextPath}/admin/blog/save.do",
+        $.post("${contextPath}/admin/blog/save.do",
                 {
                     'title' : title,
                     'blogType.id' : blogTypeId,

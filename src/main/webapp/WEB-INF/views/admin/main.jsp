@@ -6,18 +6,18 @@
 <head>    
 <title>SSM个人博客系统后台管理页面</title>   
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 
 	function openTab(text,url,iconCls){
 		if($("#tabs").tabs("exists",text)){
 			$("#tabs").tabs("select",text);
 		}else{
-			var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${pageContext.request.contextPath}/admin/"+url+"'></iframe>";
+			var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${contextPath}/admin/"+url+"'></iframe>";
 			$("#tabs").tabs("add",{
 				title:text,
 				iconCls:iconCls,
@@ -33,7 +33,7 @@
 
 	function modifyPassword() {
 		$("#fm").form("submit",{
-			url: "${pageContext.request.contextPath}/admin/blogger/modifyPassword.do",
+			url: "${contextPath}/admin/blogger/modifyPassword.do",
 			onSubmit: function() {
 				var newPassword = $("#password").val();
 				var newPassword2 = $("#password2").val();
@@ -66,7 +66,7 @@
 	}
 
 	function refreshSystemCache() {
-		$.post("${pageContext.request.contextPath}/admin/system/refreshSystemCache.do",{},function(result){
+		$.post("${contextPath}/admin/system/refreshSystemCache.do",{},function(result){
 			if(result.success){
 				$.messager.alert("系统提示","已成功刷新系统缓存！");
 			}else{
@@ -78,7 +78,7 @@
 	function logout() {
 		$.messager.confirm("系统提示","您确定要退出系统吗？", function(r){
 			if(r) {
-				window.location.href = "${pageContext.request.contextPath}/admin/blogger/logout.do";
+				window.location.href = "${contextPath}/admin/blogger/logout.do";
 			}
 		});
 	}

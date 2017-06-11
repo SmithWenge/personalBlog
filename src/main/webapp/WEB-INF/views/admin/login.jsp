@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ssm博客系统</title>
 <script
-	src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
+	src="${contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <STYLE>
 body {
 	background: #ebebeb;
@@ -54,7 +54,7 @@ body {
 
 .u_logo {
 	background:
-		url("${pageContext.request.contextPath}/static/images/username.png")
+		url("${contextPath}/static/images/username.png")
 		no-repeat;
 	padding: 10px 10px;
 	position: absolute;
@@ -64,7 +64,7 @@ body {
 
 .p_logo {
 	background:
-		url("${pageContext.request.contextPath}/static/images/password.png")
+		url("${contextPath}/static/images/password.png")
 		no-repeat;
 	padding: 10px 10px;
 	position: absolute;
@@ -78,7 +78,7 @@ a {
 
 .tou {
 	background:
-		url("${pageContext.request.contextPath}/static/images/tou.png")
+		url("${contextPath}/static/images/tou.png")
 		no-repeat;
 	width: 97px;
 	height: 92px;
@@ -89,7 +89,7 @@ a {
 
 .left_hand {
 	background:
-		url("${pageContext.request.contextPath}/static/images/left_hand.png")
+		url("${contextPath}/static/images/left_hand.png")
 		no-repeat;
 	width: 32px;
 	height: 37px;
@@ -100,7 +100,7 @@ a {
 
 .right_hand {
 	background:
-		url("${pageContext.request.contextPath}/static/images/right_hand.png")
+		url("${contextPath}/static/images/right_hand.png")
 		no-repeat;
 	width: 32px;
 	height: 37px;
@@ -111,7 +111,7 @@ a {
 
 .initial_left_hand {
 	background:
-		url("${pageContext.request.contextPath}/static/images/hand.png")
+		url("${contextPath}/static/images/hand.png")
 		no-repeat;
 	width: 30px;
 	height: 20px;
@@ -122,7 +122,7 @@ a {
 
 .initial_right_hand {
 	background:
-		url("${pageContext.request.contextPath}/static/images/hand.png")
+		url("${contextPath}/static/images/hand.png")
 		no-repeat;
 	width: 30px;
 	height: 20px;
@@ -133,7 +133,7 @@ a {
 
 .left_handing {
 	background:
-		url("${pageContext.request.contextPath}/static/images/left-handing.png")
+		url("${contextPath}/static/images/left-handing.png")
 		no-repeat;
 	width: 30px;
 	height: 20px;
@@ -144,7 +144,7 @@ a {
 
 .right_handinging {
 	background:
-		url("${pageContext.request.contextPath}/static/images/right_handing.png")
+		url("${contextPath}/static/images/right_handing.png")
 		no-repeat;
 	width: 30px;
 	height: 20px;
@@ -205,7 +205,7 @@ a {
 </head>
 <body>
 	<DIV class="top_div"></DIV>
-	<form action="${pageContext.request.contextPath}/blogger/login.do"
+	<form action="${contextPath}/blogger/login.do"
 		method="post" onsubmit="return checkForm()">
 		<DIV
 			style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">
