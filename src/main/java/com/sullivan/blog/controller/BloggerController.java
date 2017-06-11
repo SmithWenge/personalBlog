@@ -57,17 +57,6 @@ public class BloggerController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/myalbum")
-	public ModelAndView myAlbum() {
-		ModelAndView modelAndView = new ModelAndView();
-		//要写一个相册的service获取相册
-		//要建一个相册表
-		//....
-		modelAndView.addObject("commonPage", "stage/blogger/myAlbum.jsp");
-		modelAndView.setViewName("/stage/index/mainTemp");
-		return modelAndView;
-	}
-
 	@RequestMapping("/resource")
 	public ModelAndView resource() {
 		ModelAndView modelAndView = new ModelAndView();
