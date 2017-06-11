@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -8,6 +8,8 @@
     <meta charset="utf-8">
     <title>Markdown写博客页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/ueditor1_4_3_3/ueditor.all.min.js"></script>
 </head>
 <body style="margin: 10px; font-family: microsoft yahei">
 
@@ -24,8 +26,7 @@
     </tr>
     <tr style="margin: 40px">
         <td>所属类别：</td>
-        <td><select id="blogTypeId" class="easyui-combobox"
-                    name="blogType.id" style="width:154px" editable="false"
+        <td><select id="blogTypeId" name="blogType.id" style="width:154px" editable="false"
                     panelHeight="auto">
             <option value="">请选择博客类别...</option>
             <c:forEach items="${blogTypeList }" var="blogType">
@@ -54,12 +55,19 @@
                data-options="iconCls:'icon-submit'">发布博客</a></td>
     </tr>
 </table>
-<!-- markdown编辑器 -->
+
+<script src="${contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script src="${contextPath}/static/bootstrap3/js/bootstrap.js"></script>
+<script src="${contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script src='${contextPath}/static/markdown-browser-0.6.0-beta1/markdown.js'></script>
 <script type="text/javascript">
+    var htmlCode;
+
+    <!-- markdown编辑器 -->
     function Editor(input , preview){
         this.update = function(){
             preview.innerHTML = markdown.toHTML(input.value);
+            htmlCode = markdown.toHTML(input.value);
         };
         input.editer = this
         this.update()
@@ -69,16 +77,18 @@
         return document.getElementById(id)
     }
     new Editor($("text-input"),$("preview"))
-</script>
 
-<script type="text/javascript">
     function submitData() {
-        var title = $("#title").val();
-        var blogTypeId = $("#blogTypeId").combobox("getValue");
-        var content = UE.getEditor('editor').getContent();
-        var summary = UE.getEditor('editor').getContentTxt().substr(0, 155);
-        var keyWord = $("#keyWord").val();
-        var contentNoTag = UE.getEditor('editor').getContentTxt();
+        var title = document.getElementById("title").value;
+        var blogTypeId = document.getElementById("blogTypeId").value;
+        var content = htmlCode.getContent();
+        var summary = htmlCode.getContentTxt().substr(0, 155);
+        var keyWord = document.getElementById("keyWord").value;
+        var contentNoTag = htmlCode.getContentTxt();
+
+        console.log(content);
+        console.log(summary);
+        console.log(contentNoTag);
 
         if (title == null || title == '') {
             $.messager.alert("系统提示", "请输入标题！");
@@ -112,9 +122,5 @@
         $("#keyWord").val("");
     }
 </script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="${contextPath}/static/jquery/jquery-2.1.3.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="${contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
 </body>
 </html>
