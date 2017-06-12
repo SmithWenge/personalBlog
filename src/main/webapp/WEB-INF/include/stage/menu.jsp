@@ -21,7 +21,8 @@
 	      <ul class="nav navbar-nav">
 	      	<li><a class="navbar-brand" href="${pageContext.request.contextPath}/index.html" onclick="changeClass(this)">博客首页</a></li>
 	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/aboutme.html" onclick="changeClass(this)">关于博主</a></li>
-	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/resource.html" onclick="changeClass(this)">资源小站</a></li>
+			  <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/tools.html" onclick="changeClass(this)">工具站</a></li>
+	        <li><a class="navbar-brand" href="${pageContext.request.contextPath}/blogger/resource.html" onclick="changeClass(this)">资源站</a></li>
 	        <li><a class="navbar-brand" href="http://www.cnblogs.com/Vdiao/" target="blank">我的博客园首页</a></li>
 	      </ul>
 	      <form action="${pageContext.request.contextPath}/blog/search.html" class="navbar-form navbar-right" role="search" method="post" onsubmit="return checkData()">

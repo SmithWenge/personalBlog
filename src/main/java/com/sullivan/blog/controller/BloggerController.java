@@ -57,11 +57,21 @@ public class BloggerController {
 		return modelAndView;
 	}
 
+	@RequestMapping("/tools")
+	public ModelAndView tools() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("commonPage", "stage/blogger/tools.jsp");
+		modelAndView.addObject("title", "关于博主 - 史汉文的博客");
+		modelAndView.setViewName("/stage/index/mainTemp");
+		return modelAndView;
+	}
+
 	@RequestMapping("/resource")
 	public ModelAndView resource() {
 		ModelAndView modelAndView = new ModelAndView();
 		//
 		//....
+		modelAndView.addObject("title", "关于博主 - 史汉文的博客");
 		modelAndView.addObject("commonPage", "stage/blogger/resource.jsp");
 		modelAndView.setViewName("/stage/index/mainTemp");
 		return modelAndView;
