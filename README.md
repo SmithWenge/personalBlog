@@ -11,3 +11,4 @@ GRANT ALL PRIVILEGES ON application.* TO 'dbblog'@'localhost' WITH GRANT OPTION;
    发布需注意
 1.修改ueditor的配置文件，前缀改成主机名
 2.修改lucene索引目录
+3.将lib下的ueditor-1.1.2.jar包添加到项目环境中
