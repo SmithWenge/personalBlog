@@ -12,6 +12,7 @@
 	<script src="${contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 	<script src="${contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
 	<title>${title }</title>
+	<link rel="shortcut icon" href="${contextPath}/static/userImages/title.png" />
 	<script type="text/javascript">
 		function changeClass(obj) {
 			var li = obj.parentNode; //获取父节点

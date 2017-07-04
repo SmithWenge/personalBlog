@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ssm博客系统</title>
+<link rel="shortcut icon" href="${contextPath}/static/userImages/title.png" />
 <script
 	src="${contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <STYLE>
