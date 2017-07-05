@@ -6,7 +6,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=2.0" />
 	<link rel="stylesheet" href="${contextPath}/static/bootstrap3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${contextPath}/static/bootstrap3/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="${contextPath}/static/css/blog.css">
@@ -43,10 +42,10 @@
 			</div>
 
 			<div class="row">
-				  <div class="col-xs-9">
+				  <div class="col-md-9">
 					  <jsp:include page="/WEB-INF/views/${commonPage }"/>
 				  </div>
-				  <div class="col-xs-3">
+				  <div class="col-md-3">
 					  <jsp:include page="/WEB-INF/views/stage/blog/rightList.jsp"/>
 				  </div>
 			</div>
