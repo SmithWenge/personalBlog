@@ -52,7 +52,7 @@ public class BloggerController {
 		Blogger blogger = bloggerService.getBloggerData();
 		modelAndView.addObject("blogger", blogger);
 		modelAndView.addObject("commonPage", "stage/blogger/bloggerInfo.jsp");
-		modelAndView.addObject("title", "关于博主 - 史汉文的博客");
+		modelAndView.addObject("title", "关于博主 - sullivan的博客");
 		modelAndView.setViewName("/stage/index/mainTemp");
 		return modelAndView;
 	}
@@ -61,7 +61,7 @@ public class BloggerController {
 	public ModelAndView tools() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("commonPage", "stage/blogger/tools.jsp");
-		modelAndView.addObject("title", "关于博主 - 史汉文的博客");
+		modelAndView.addObject("title", "工具站 - sullivan的博客");
 		modelAndView.setViewName("/stage/index/mainTemp");
 		return modelAndView;
 	}
@@ -71,7 +71,7 @@ public class BloggerController {
 		ModelAndView modelAndView = new ModelAndView();
 		//
 		//....
-		modelAndView.addObject("title", "关于博主 - 史汉文的博客");
+		modelAndView.addObject("title", "资源站 - sullivan的博客");
 		modelAndView.addObject("commonPage", "stage/blogger/resource.jsp");
 		modelAndView.setViewName("/stage/index/mainTemp");
 		return modelAndView;

@@ -67,7 +67,7 @@ public class BlogController {
 
 		modelAndView.addObject("commentList", commentList);
 		modelAndView.addObject("commonPage", "stage/blog/blogDetail.jsp");
-		modelAndView.addObject("title", blog.getTitle() + " - 史汉文的博客");
+		modelAndView.addObject("title", blog.getTitle() + " - sullivan的博客");
 
 		// 存入上一篇和下一篇的显示代码
 		modelAndView.addObject("pageCode", PageUtil.getPrevAndNextPageCode(
@@ -103,7 +103,7 @@ public class BlogController {
 		modelAndView.addObject("q", q); // 用于数据的回显
 		modelAndView.addObject("resultTotal", blogIndexList.size()); // 查询到的总记录数
 		modelAndView.addObject("commonPage", "stage/blog/searchResult.jsp");
-		modelAndView.addObject("title", "搜索'" + q + "'的结果 - 史汉文的博客");
+		modelAndView.addObject("title", "搜索'" + q + "'的结果 - sullivan的博客");
 		modelAndView.setViewName("stage/index/mainTemp");
 		return modelAndView;
 	}

@@ -263,6 +263,13 @@
       <artifactId>jsoup</artifactId>
       <version>1.9.2</version>
     </dependency>
+
+    <!-- ftp IO包 -->
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>3.3</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -42,10 +42,10 @@
 			</div>
 
 			<div class="row">
-				  <div class="col-md-9">
+				  <div class="col-xs-9">
 					  <jsp:include page="/WEB-INF/views/${commonPage }"/>
 				  </div>
-				  <div class="col-md-3">
+				  <div class="col-xs-3">
 					  <jsp:include page="/WEB-INF/views/stage/blog/rightList.jsp"/>
 				  </div>
 			</div>

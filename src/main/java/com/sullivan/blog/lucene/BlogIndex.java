@@ -32,7 +32,7 @@ public class BlogIndex {
 	private Directory dir;
 
 	private IndexWriter getWriter() throws Exception {
-		dir = FSDirectory.open(Paths.get("/data/blog_index"));
+		dir = FSDirectory.open(Paths.get("D:\\blog_index"));
 		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
 		IndexWriterConfig config = new IndexWriterConfig(analyzer);
 		IndexWriter writer = new IndexWriter(dir, config);
