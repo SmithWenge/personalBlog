@@ -15,7 +15,9 @@ public class FileUtil {
         File[] files = file.listFiles();
 
         for(File fileName : files) {
-            list.add(fileName.getAbsolutePath());
+            if(!".bash_profile".equals(fileName.getName()) && !".bash_logout".equals(fileName.getName()) && !".bashrc".equals(fileName.getName())) {
+                list.add(fileName.getAbsolutePath());
+            }
         }
 
         return list;
@@ -27,7 +29,9 @@ public class FileUtil {
         File[] files = file.listFiles();
 
         for(File fileName : files) {
-            list.add(String.valueOf(((fileName.length())/1024))+"kb");
+            if(!".bash_profile".equals(fileName.getName()) && !".bash_logout".equals(fileName.getName()) && !".bashrc".equals(fileName.getName())) {
+                list.add(String.valueOf(((fileName.length())/1024))+"kb");
+            }
         }
 
         return list;

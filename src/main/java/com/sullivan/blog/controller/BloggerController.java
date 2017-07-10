@@ -87,13 +87,24 @@ public class BloggerController {
 			dic = "/home/sullivan/" + dic.replace("_","/");
 		}
 
+		List<String> listLength = FileUtil.getLengths(dic);
 		List<String> listAbsolutePaths = FileUtil.getAbsolutePaths(dic);
 		List<Map<String,String>> maps = new ArrayList<>();
-		for(String path : listAbsolutePaths) {
+//		for(String path : listAbsolutePaths) {
+		for (int i = 0; i < listAbsolutePaths.size(); i++) {
 			Map<String,String> map = new HashMap<>();
-			String cutedPath = path.replace("/home/sullivan/","");
-			int start = path.lastIndexOf("/");
-			map.put(cutedPath.replace("/","_"),start == -1 ? null : path.substring(start + 1));
+
+			String cutedPath = listAbsolutePaths.get(i).replace("/home/sullivan/", "").replace("/","_");
+			int start = listAbsolutePaths.get(i).lastIndexOf("/");
+			String fileName = start == -1 ? null : listAbsolutePaths.get(i).substring(start + 1);
+
+			File file = new File(listAbsolutePaths.get(i));
+			if(file.isFile()) {
+				map.put(cutedPath, fileName + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + listLength.get(i));
+			} else {
+				map.put(cutedPath, fileName);
+			}
+
 			maps.add(map);
 		}
 
