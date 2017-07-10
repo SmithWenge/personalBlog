@@ -32,7 +32,7 @@ public class BlogIndex {
 	private Directory dir;
 
 	private IndexWriter getWriter() throws Exception {
-		dir = FSDirectory.open(Paths.get("D:\\blog_index"));
+		dir = FSDirectory.open(Paths.get("/data/blog_index"));
 		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
 		IndexWriterConfig config = new IndexWriterConfig(analyzer);
 		IndexWriter writer = new IndexWriter(dir, config);
@@ -75,7 +75,7 @@ public class BlogIndex {
 	//查询博客索引信息
 	public List<Blog> searchBlog(String q) throws Exception {
 
-		dir = FSDirectory.open(Paths.get("D:\\blog_index"));
+		dir = FSDirectory.open(Paths.get("/data/blog_index"));
 		IndexReader reader = DirectoryReader.open(dir);
 		IndexSearcher search = new IndexSearcher(reader);
 		//多条件查询

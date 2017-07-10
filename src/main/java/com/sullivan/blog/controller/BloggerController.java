@@ -4,16 +4,29 @@ package com.sullivan.blog.controller;
 import com.sullivan.blog.entity.Blogger;
 import com.sullivan.blog.service.BloggerService;
 import com.sullivan.blog.util.CryptographyUtil;
+import com.sullivan.blog.util.FTPUtil;
+import com.sullivan.blog.util.FileUtil;
+import com.sullivan.blog.util.ResponseUtil;
+import net.sf.json.JSONObject;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Description 博主Controller层，前台部分，不需要认证
@@ -66,14 +79,61 @@ public class BloggerController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/resource")
-	public ModelAndView resource() {
+	@RequestMapping("/resource/{dic}")
+	public ModelAndView resource(@PathVariable("dic") String dic) {
+		if (dic == null || dic.equals("")) {
+			dic = "/home/sullivan/";
+		} else {
+			dic = "/home/sullivan/" + dic.replace("_","/");
+		}
+
+		List<String> listAbsolutePaths = FileUtil.getAbsolutePaths(dic);
+		List<Map<String,String>> maps = new ArrayList<>();
+		for(String path : listAbsolutePaths) {
+			Map<String,String> map = new HashMap<>();
+			String cutedPath = path.replace("/home/sullivan/","");
+			int start = path.lastIndexOf("/");
+			map.put(cutedPath.replace("/","_"),start == -1 ? null : path.substring(start + 1));
+			maps.add(map);
+		}
+
 		ModelAndView modelAndView = new ModelAndView();
-		//
-		//....
 		modelAndView.addObject("title", "资源站 - sullivan的博客");
 		modelAndView.addObject("commonPage", "stage/blogger/resource.jsp");
+		modelAndView.addObject("maps", maps);
+		modelAndView.addObject("listAbsolutePaths", listAbsolutePaths);
 		modelAndView.setViewName("/stage/index/mainTemp");
 		return modelAndView;
+	}
+
+	@RequestMapping(value = "/download/{path}")
+	public String download(@PathVariable("path") String path, HttpServletResponse response) {
+		File localFile = new File("/home/sullivan/" + path.replace("_","/"));
+
+		if (localFile.isDirectory()) {
+			return "redirect:/blogger/resource/"+localFile.getAbsolutePath().replace("/home/sullivan/","").replace("/","_")+".do";
+		}
+
+		try {
+			response.setContentType("application/x-export");
+			response.setCharacterEncoding("UTF-8");
+			response.setHeader("Content-Disposition", "attachment; filename=" + java.net.URLEncoder.encode(localFile.getName(), "UTF-8"));
+			response.setHeader("Content-Length", String.valueOf(localFile.length()));
+			int length = 0;
+			byte[] buffer = new byte[1024];
+			FileInputStream fis = new FileInputStream(localFile);
+			OutputStream os = response.getOutputStream();
+			while (-1 != (length = fis.read(buffer, 0, buffer.length))) {
+				os.write(buffer, 0, length);
+			}
+			fis.close();
+			os.flush();
+			os.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }
