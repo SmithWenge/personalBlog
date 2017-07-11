@@ -54,7 +54,7 @@ public class BlogIndex {
 	//删除指定博客的索引
 	public void deleteIndex(String blogId) throws Exception {
 		IndexWriter writer = getWriter();
-		writer.deleteDocuments(new Term("id", blogId));
+		writer.deleteDocuments(new Term("id", blogId));//将id对应的文档，删除
 		writer.forceMergeDeletes();//强制删除
 		writer.commit();
 		writer.close();
@@ -68,7 +68,7 @@ public class BlogIndex {
 		doc.add(new TextField("title", blog.getTitle(), Field.Store.YES));
 		doc.add(new StringField("releaseDate", DateUtil.formatDate(new Date(), "yyyy-MM-dd"), Field.Store.YES));
 		doc.add(new TextField("content", blog.getContentNoTag(), Field.Store.YES));
-		writer.updateDocument(new Term("id", String.valueOf(blog.getId())), doc);
+		writer.updateDocument(new Term("id", String.valueOf(blog.getId())), doc);//将id对应的文档，用新建的文档替换
 		writer.close();
 	}
 
