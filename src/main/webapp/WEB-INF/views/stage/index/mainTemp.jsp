@@ -19,6 +19,21 @@
 			li.className = "active";
 		}
 	</script>
+	//自动推送到百度
+	<script>
+		(function(){
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https'){
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			}
+			else{
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+	</script>
 	<style type="text/css">
 		body{
 			padding-top:60px;
