@@ -19,7 +19,7 @@
 			li.className = "active";
 		}
 	</script>
-	//自动推送到百度
+	<%--自动推送链接到百度--%>
 	<script>
 		(function(){
 			var bp = document.createElement('script');
