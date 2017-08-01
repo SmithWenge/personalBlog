@@ -69,7 +69,7 @@ public class BlogController {
 		modelAndView.addObject("commonPage", "stage/blog/blogDetail.jsp");
 		modelAndView.addObject("title", blog.getTitle() + " - sullivan的博客");
 
-		// 存入上一篇和下一篇的显示代码
+		// 上一篇和下一篇
 		modelAndView.addObject("pageCode", PageUtil.getPrevAndNextPageCode(
 				blogService.getPrevBlog(id), blogService.getNextBlog(id),
 				request.getServletContext().getContextPath()));
