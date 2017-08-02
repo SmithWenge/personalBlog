@@ -43,6 +43,9 @@ public class BlogIndex {
 	public void addIndex(Blog blog)  throws Exception {
 		IndexWriter writer = getWriter();
 		Document doc = new Document();
+		//Store.YES 保存 可以查询 可以打印内容
+		//Store.NO 不保存 可以查询 不可打印内容 由于不保存内容所以节省空间
+		//Store.COMPRESS 压缩保存 可以查询 可以打印内容 可以节省生成索引文件的空间
 		doc.add(new StringField("id", String.valueOf(blog.getId()), Field.Store.YES));
 		doc.add(new TextField("title", blog.getTitle(), Field.Store.YES));
 		doc.add(new StringField("releaseDate", DateUtil.formatDate(new Date(), "yyyy-MM-dd"), Field.Store.YES));
@@ -83,13 +86,14 @@ public class BlogIndex {
 		//中文分词
 		SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
 
+		//多关键字搜索
 		QueryParser parser1 = new QueryParser("title", analyzer); //查询标题
 		Query query1 = parser1.parse(q);
 
 		QueryParser parser2 = new QueryParser("content", analyzer); //查询内容
 		Query query2 = parser2.parse(q);
 
-		//组合条件进行查询
+		//组合搜索 BooleanClause.Occur.SHOULD表示的是或的关系，表明当前加入的子句是可选的。
 		booleanQuery.add(query1, BooleanClause.Occur.SHOULD);
 		booleanQuery.add(query2, BooleanClause.Occur.SHOULD);
 
