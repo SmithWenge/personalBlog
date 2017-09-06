@@ -58,10 +58,7 @@ public class InitBloggerData implements ServletContextListener, ApplicationConte
 		application.setAttribute("blogTimeList", blogTimeList);
 	}
 
-	public void contextDestroyed(ServletContextEvent sce) {
-		// TODO Auto-generated method stub
-
-	}
+	public void contextDestroyed(ServletContextEvent sce) {}
 
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {

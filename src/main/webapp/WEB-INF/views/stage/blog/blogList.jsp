@@ -6,9 +6,9 @@
 <div class="data_list">
   		<div class="data_list_title">
 			<img src="${contextPath}/static/images/list_icon.png"/>&nbsp;最新博客
-		</div>	
+		</div>
 		<div class="datas">
-			<ul>	
+			<ul>
 				<c:forEach items="${blogList}" var="blog">
 					<li style="margin-bottom: 30px">
 					  	<span class="title">

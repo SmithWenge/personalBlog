@@ -79,6 +79,7 @@
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
 		<property name="filterChainDefinitions">
 			<value>
+				/test=anon
 				/login=anon
 				/admin/**=authc
 			</value>
