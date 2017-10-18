@@ -23,7 +23,6 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 
 	//获取博客类别信息
 	public List<BlogType> getBlogTypeData() {
-
 		return blogTypeDao.getBlogTypeData();
 	}
 

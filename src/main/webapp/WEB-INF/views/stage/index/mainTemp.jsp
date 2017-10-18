@@ -19,8 +19,9 @@
 			li.className = "active";
 		}
 	</script>
+
 	<%--自动推送链接到百度--%>
-	<script>
+	<script type="text/javascript">
 		(function(){
 			var bp = document.createElement('script');
 			var curProtocol = window.location.protocol.split(':')[0];
