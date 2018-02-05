@@ -15,7 +15,8 @@ public class FileUtil {
         File[] files = file.listFiles();
 
         for(File fileName : files) {
-            if(!".bash_profile".equals(fileName.getName()) && !".bash_logout".equals(fileName.getName()) && !".bashrc".equals(fileName.getName())) {
+            // 除去隐藏文件
+            if(!fileName.getName().startsWith(".")) {
                 list.add(fileName.getAbsolutePath());
             }
         }
@@ -29,7 +30,8 @@ public class FileUtil {
         File[] files = file.listFiles();
 
         for(File fileName : files) {
-            if(!".bash_profile".equals(fileName.getName()) && !".bash_logout".equals(fileName.getName()) && !".bashrc".equals(fileName.getName())) {
+            // 除去隐藏文件
+            if(!fileName.getName().startsWith(".")) {
                 list.add(String.valueOf(((fileName.length())/1024))+"kb");
             }
         }

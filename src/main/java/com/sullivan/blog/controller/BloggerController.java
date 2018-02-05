@@ -80,24 +80,29 @@ public class BloggerController {
 	}
 
 	@RequestMapping("/resource/{dic}")
-	public ModelAndView resource(@PathVariable("dic") String dic) {
-		if (dic == null || dic.equals("")) {
-			dic = "/home/sullivan/";
+	public ModelAndView resource(@PathVariable("dic") String dic) throws UnsupportedEncodingException {
+		// 转换编码格式，不然中文会出现乱码
+		String keyword = new String(dic.getBytes("ISO-8859-1"), "utf-8");
+		// 判断传过来的路径，如果为空的话证明是第一次打开，加上前缀。不为空的在后面附上值
+		if (keyword == null || keyword.equals("")) {
+			keyword = "/data/resources/";
 		} else {
-			dic = "/home/sullivan/" + dic.replace("_","/");
+			keyword = "/data/resources/" + keyword.replace("_","/");
 		}
 
-		List<String> listLength = FileUtil.getLengths(dic);
-		List<String> listAbsolutePaths = FileUtil.getAbsolutePaths(dic);
+		List<String> listLength = FileUtil.getLengths(keyword);
+		List<String> listAbsolutePaths = FileUtil.getAbsolutePaths(keyword);
 		List<Map<String,String>> maps = new ArrayList<>();
-//		for(String path : listAbsolutePaths) {
 		for (int i = 0; i < listAbsolutePaths.size(); i++) {
 			Map<String,String> map = new HashMap<>();
 
-			String cutedPath = listAbsolutePaths.get(i).replace("/home/sullivan/", "").replace("/","_");
+			// 转换前端传来路径的格式
+			String cutedPath = listAbsolutePaths.get(i).replace("/data/resources/", "").replace("/","_");
 			int start = listAbsolutePaths.get(i).lastIndexOf("/");
-			String fileName = start == -1 ? null : listAbsolutePaths.get(i).substring(start + 1);
+			// 获取文件名，因为不知道现在的路径是否是文件，所以用截字符串的方式实现
+			String fileName = start == -1 ? "没有文件" : listAbsolutePaths.get(i).substring(start + 1);
 
+			// 判断是否是文件（文件和文件夹的显示样式不同）
 			File file = new File(listAbsolutePaths.get(i));
 			if(file.isFile()) {
 				map.put(cutedPath, fileName + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + listLength.get(i));
@@ -118,11 +123,13 @@ public class BloggerController {
 	}
 
 	@RequestMapping(value = "/download/{path}")
-	public String download(@PathVariable("path") String path, HttpServletResponse response) {
-		File localFile = new File("/home/sullivan/" + path.replace("_","/"));
+	public String download(@PathVariable("path") String path, HttpServletResponse response) throws UnsupportedEncodingException {
+		// 转换编码格式，不然中文会出现乱码
+		String keyword = new String(path.getBytes("ISO-8859-1"), "utf-8");
+		File localFile = new File("/data/resources/" + keyword.replace("_","/"));
 
 		if (localFile.isDirectory()) {
-			return "redirect:/blogger/resource/"+localFile.getAbsolutePath().replace("/home/sullivan/","").replace("/","_")+".do";
+			return "redirect:/blogger/resource/"+localFile.getAbsolutePath().replace("/data/resources/","").replace("/","_")+".do";
 		}
 
 		try {
