@@ -37,7 +37,7 @@
 	</script>
 	<style type="text/css">
 		body{
-			padding-top:60px;
+			padding-top:50px;
 			padding-bottom:40px;
 			background-color: #F5F5F5;
 			font-family: microsoft yahei;
