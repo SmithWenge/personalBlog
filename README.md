@@ -3,10 +3,14 @@
 <li>tomcat 8.0</li>
 <li>mysql 5.7</li>
 
+<br>
+
 ##MySQL Config
 <li>CREATE SCHEMA `db_blog` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;</li>
 <li>CREATE USER 'dbblog'@'localhost' IDENTIFIED BY 'dbblog';</li>
 <li>GRANT ALL PRIVILEGES ON application.* TO 'dbblog'@'localhost' WITH GRANT OPTION;</li>
+
+<br>
 
 ##发布需注意
 <li>1.修改ueditor的配置文件，前缀改成主机名(static/ueditor1_4_3_3/jsp/config.json)</li>
